@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="{{request.locale_name}}"/>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+		<meta name="description" content="A sidebar menu as seen on the Google Nexus 7 website" />
+		<meta name="keywords" content="google nexus 7 menu, css transitions, sidebar, side menu, slide out menu" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+		<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"/>
+		<link rel="shortcut icon" href="{{request.static_url('carlo:static/favicon.ico')}}"/>
+		<link rel="stylesheet" type="text/css" href="{{request.static_url('carlo:static/GMenu/css/normalize.css')}}" />
+		<link rel="stylesheet" type="text/css" href="{{request.static_url('carlo:static/GMenu/css/demo.css')}}" />
+		<link rel="stylesheet" type="text/css" href="{{request.static_url('carlo:static/GMenu/css/component.css')}}" />
+		<script src="{{request.static_url('carlo:static/GMenu/js/modernizr.custom.js')}}"></script>
+	</head>
+<body>
+		<div class="container">
+			<ul  id="gn-menu" class="gn-menu-main">
+				<li class="gn-trigger" >
+					<a class="gn-icon gn-icon-menu" ><span>Menu</span></a>
+					<nav class="gn-menu-wrapper">
+						<div class="gn-scroller">
+						 {% for menus in menu %}
+							<ul class="gn-menu">
+
+								<li>
+
+									<a href="{{ menus.link }}" class="gn-icon gn-icon-help">{{ menus.titolo }}</a>
+
+
+									<ul class="gn-submenu">
+
+                                    {% for submenus in submenu %}
+									<li>
+
+										{% if menus.codice == submenus.radice %}
+										<a href="{{ submenus.link }}" style="color:green; margin-left:20%;"><span></span> {{ submenus.titolo}}</a>
+										{% endif %}
+
+									</li>
+{%endfor%}
+
+
+									</ul>
+
+							</li>
+
+							</ul>
+						</div>
+					</nav>
+				</li>
+
+				<li><a  href="/"><span></span></a></li>
+
+			</ul>
+			 {% endfor %}
+		</div><!-- /container -->
+		<script src="{{request.static_url('carlo:static/GMenu/js/classie.js')}}"></script>
+		<script src="{{request.static_url('carlo:static/GMenu/js/gnmenu.js')}}"></script>
+		<script>
+			new gnMenu( document.getElementById( 'gn-menu' ) );
+		</script>
+</body>
+</html>

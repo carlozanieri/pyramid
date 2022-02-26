@@ -1,0 +1,9 @@
+{% extends "layout.jinja2" %}
+
+{% block content %}
+<header>{% include 'menu.html' %}</header>
+<div class="content">
+  <h1><span class="font-semi-bold">Pyramid</span> <span class="smaller">Starter project</span></h1>
+  <p class="lead">Benvenuto  <span class="font-normal">{{project}}{{name}}</span>, a&nbsp;Pyramid application generated&nbsp;by<br><span class="font-normal"></span>{{name}}</p>
+</div>
+{% endblock content %}
