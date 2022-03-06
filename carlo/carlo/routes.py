@@ -3,7 +3,7 @@ def includeme(config):
     config.add_static_view('static', 'static', cache_max_age=3600)
     config.add_route('home', '/')
     config.add_route('menu', '/menu', )
-    config.add_route('upload_form', '/upload_form', )
+    config.add_route('upload_form', '/upload', )
     config.add_route('store_mp3_view', '/store_mp3_view', )
     config.add_route('slide', '/slide', )
     config.add_route('newss', '/newss', )
