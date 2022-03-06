@@ -101,9 +101,11 @@ body { height: 3200px; font-size: 16px; font-family: 'Exo 2', sans-serif; backgr
 
     <label for="file">File </label>
     <input id="file" name="file" type="file" value="" />
-
-    <input id="dir" name="dir" type="hidden" value="/srv/http/pyramid/carlo/carlo/static/img/mugello/" />
-
+    {% if request.static_url('carlo:static/') == "http://localhost:6565/static/" %}
+        <input id="dir" name="dir" type="hidden" value="/home/carlo/pyramid/carlo/carlo/static/img/mugello/" />
+    {% else %}
+        <input id="dir" name="dir" type="hidden" value="/srv/http/pyramid/carlo/carlo/static/img/mugello/" />
+    {% endif %}
     <input type="submit" value="submit" />
 </form>
 
